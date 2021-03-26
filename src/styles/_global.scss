@@ -1,0 +1,145 @@
+@use 'variables';
+
+$imgKey: random(8);
+$list: 'bardin1.jpg', 'bardin2.jpg', 'bardin3.jpg', 'ker1.jpg', 'krub1.jpg', 'krub2.jpg', 'salt2.jpg', 'sienn1.jpg',
+  'sienn2.jpg';
+$nth: nth($list, $imgKey);
+
+@font-face {
+  font-family: 'LibreCaslon';
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/LibreCaslonText-Regular.ttf');
+}
+
+body {
+  color: var(--color-light);
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/bg/small/#{$nth}');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1.headline {
+  font-family: 'LibreCaslon';
+  font-size: 2.5rem;
+  text-shadow: 0 2px rgba(243, 243, 243, 0.356);
+}
+
+p.headline {
+  text-align: justify;
+  max-width: 600px;
+}
+
+.headline {
+  padding: 0.5rem;
+  border-radius: 2px;
+  color: rgb(20, 20, 20);
+}
+
+.book,
+.head {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  width: 100%;
+}
+
+.book {
+  background-color: #2b2b2bdc;
+  border-radius: 6px;
+}
+
+.entry {
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.wrap {
+  padding: 1rem;
+  text-shadow: 0 1px rgba(243, 243, 243, 0.212);
+}
+
+main {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: rgba(214, 205, 205, 0.411);
+  backdrop-filter: blur(5px);
+  margin: auto;
+  border: 1px solid #a7a7a796;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(43, 42, 42, 0.185);
+}
+.page {
+  padding: 1rem;
+}
+
+.page p {
+  text-align: justify;
+  line-height: 1.2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-width: 80%;
+}
+
+.page p:first-of-type {
+  font-size: 1.5rem;
+  position: relative;
+  font-family: 'LibreCaslon';
+  border-bottom: 1px solid rgba(214, 205, 205, 0.411);
+  padding-bottom: .3rem;
+}
+
+.page p:first-of-type::before {
+  content: url('../images/_empireskull_.gif');
+  margin-right: 1rem;
+  
+}
+
+ul {
+  list-style: none;
+}
+
+@media (min-width: 400px) {
+  body {
+    background-image: url('../images/bg/#{$nth}');
+  }
+  .entry h3 img {
+    margin-right: 1rem;
+    height: 1.17em;
+    float: left;
+  }
+}
+
+@media (max-width: 399px) {
+  main {
+    width: auto;
+  }
+  .head {
+    grid-template-columns: 1fr;
+  }
+  h1.headline {
+    font-size: 1.5rem;
+  }
+
+  .book {
+    grid-template-columns: 1fr;
+  }
+  .entry h3 {
+    font-size: 1em;
+  }
+  ul {
+    padding: 1rem;
+  }
+  .entry h3 img {
+    margin-right: 1rem;
+    height: 1em;
+    float: left;
+  }
+}
